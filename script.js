@@ -1,5 +1,9 @@
 const validPicks = ["rock", "paper", "scissors"];
 
+playerScore = 0;
+computerScore = 0;
+
+
 function validatePick(pick) {
     if (pick) {
         if (validPicks.includes(pick.toLowerCase())) {
@@ -22,4 +26,5 @@ function getComputerPick() {
     let i = Math.floor(Math.random() * validPicks.length);
     return validPicks[i];
 }
+
 
