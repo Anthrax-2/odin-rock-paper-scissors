@@ -5,33 +5,51 @@ const validPicks = ["rock", "paper", "scissors"]
 let playerScore = 0
 let computerScore = 0
 
+function resetVars() {
+    playerScore = 0
+    computerScore = 0
+}
+
+function playGame(numberOfRounds = 3) {
+    for (let i = 0; i < numberOfRounds; i++) {
+        console.log(playRound(getPlayerPick(), getComputerPick()))
+    }
+    if (playerScore > computerScore) {
+        return `Final score:\nPlayer: ${playerScore}\nComputer: ${computerScore}\nPlayer wins.`
+    } else if (playerScore < computerScore) {
+        return `Final score:\nPlayer: ${playerScore}\nComputer: ${computerScore}\nComputer wins.`
+    } else {
+        return `Final score:\nPlayer: ${playerScore}\nComputer: ${computerScore}\nDraw.`
+    }
+}
+
 function playRound(playerPick, computerPick) {
     if (playerPick === "scissors") {
         if (computerPick === "paper") {
-            playerScore ++;
+            playerScore++
             return `Player chose scissors. Computer chose paper. Player wins.\n`
         } else if (computerPick === "rock") {
-            computerScore ++;
+            computerScore++
             return `Player chose scissors. Computer chose rock. Computer wins.\n`
         } else {
             return `Player chose scissors. Computer chose scissors. Draw.\n`
         }
     } else if (playerPick === "rock") {
         if (computerPick === "scissors") {
-            playerScore ++
+            playerScore++
             return `Player chose rock. Computer chose scissors. Player wins.\n`
         } else if (computerPick === "paper") {
-            computerScore ++
+            computerScore++
             return `Player chose rock. Computer chose paper. Computer wins.\n`
         } else {
             return `Player chose rock. Computer chose rock. Draw.\n`
         }
     } else {
         if (computerPick === "rock") {
-            playerScore ++
+            playerScore++
             return `Player chose paper. Computer chose rock. Player wins.\n`
         } else if (computerPick === "scissors") {
-            computerScore ++
+            computerScore++
             return `Player chose paper. Computer chose scissors. Computer wins.\n`
         } else {
             return `Player chose paper. Computer chose paper. Draw.\n`
@@ -54,10 +72,18 @@ function getPlayerPick() {
     if (validatePick(pick)) {
         return pick.toLowerCase()
     }
-    return null
+    alert("Invalid input.")
+    return getPlayerPick()
 }
 
 function getComputerPick() {
     let i = Math.floor(Math.random() * validPicks.length)
     return validPicks[i]
 }
+
+console.log(playGame())
+console.log(playerScore + " " + computerScore);
+
+resetVars()
+console.log(playerScore + " " + computerScore);
+
