@@ -8,38 +8,35 @@ let computerScore = 0
 function playRound(playerPick, computerPick) {
     if (playerPick === "scissors") {
         if (computerPick === "paper") {
+            playerScore ++;
             return `Player chose scissors. Computer chose paper. Player wins.\n`
-        }
-        else if (computerPick === "rock") {
+        } else if (computerPick === "rock") {
+            computerScore ++;
             return `Player chose scissors. Computer chose rock. Computer wins.\n`
-        }
-        else {
+        } else {
             return `Player chose scissors. Computer chose scissors. Draw.\n`
         }
-    }
-    else if (playerPick === "rock") {
+    } else if (playerPick === "rock") {
         if (computerPick === "scissors") {
+            playerScore ++
             return `Player chose rock. Computer chose scissors. Player wins.\n`
-        }
-        else if (computerPick === "paper") {
+        } else if (computerPick === "paper") {
+            computerScore ++
             return `Player chose rock. Computer chose paper. Computer wins.\n`
-        }
-        else {
+        } else {
             return `Player chose rock. Computer chose rock. Draw.\n`
         }
-    }
-    else {
+    } else {
         if (computerPick === "rock") {
+            playerScore ++
             return `Player chose paper. Computer chose rock. Player wins.\n`
-        }
-        else if (computerPick === "scissors") {
+        } else if (computerPick === "scissors") {
+            computerScore ++
             return `Player chose paper. Computer chose scissors. Computer wins.\n`
-        }
-        else {
+        } else {
             return `Player chose paper. Computer chose paper. Draw.\n`
         }
     }
-
 }
 
 function validatePick(pick) {
@@ -64,4 +61,3 @@ function getComputerPick() {
     let i = Math.floor(Math.random() * validPicks.length)
     return validPicks[i]
 }
-
