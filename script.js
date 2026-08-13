@@ -17,3 +17,9 @@ function getPlayerPick() {
     }
     return null;
 }
+
+function getComputerPick() {
+    let i = Math.floor(Math.random() * validPicks.length);
+    return validPicks[i];
+}
+
