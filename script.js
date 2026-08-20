@@ -82,8 +82,7 @@ function getComputerPick() {
 }
 
 console.log(playGame())
-console.log(playerScore + " " + computerScore);
 
 resetVars()
-console.log(playerScore + " " + computerScore);
+
 
