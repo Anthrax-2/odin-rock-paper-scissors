@@ -1,2 +1,2 @@
-# odin-rock-paper-scissors-
+# odin-rock-paper-scissors
 Simple rock-paper-scissors game
