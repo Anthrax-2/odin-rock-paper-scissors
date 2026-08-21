@@ -2,17 +2,20 @@
 
 const validPicks = ["rock", "paper", "scissors"]
 
-let playerScore = 0
-let computerScore = 0
-
-function resetVars() {
-    playerScore = 0
-    computerScore = 0
-}
-
 function playGame(numberOfRounds = 3) {
+
+    let playerScore = 0
+    let computerScore = 0
+
     for (let i = 0; i < numberOfRounds; i++) {
-        console.log(playRound(getPlayerPick(), getComputerPick()))
+        let [message, winner] = playRound(getPlayerPick(), getComputerPick())
+        if (winner === `player`) {
+            playerScore++
+        }
+        else if (winner === `computer`) {
+            computerScore++
+        }
+        console.log(message)
     }
     if (playerScore > computerScore) {
         return `Final score:\nPlayer: ${playerScore}\nComputer: ${computerScore}\nPlayer wins.`
@@ -26,33 +29,30 @@ function playGame(numberOfRounds = 3) {
 function playRound(playerPick, computerPick) {
     if (playerPick === "scissors") {
         if (computerPick === "paper") {
-            playerScore++
-            return `Player chose scissors. Computer chose paper. Player wins.\n`
+            return [`Player chose scissors. Computer chose paper. Player wins round.\n`, `player`]
         } else if (computerPick === "rock") {
-            computerScore++
-            return `Player chose scissors. Computer chose rock. Computer wins.\n`
+            return [`Player chose scissors. Computer chose rock. Computer wins round.\n`, `computer`]
         } else {
-            return `Player chose scissors. Computer chose scissors. Draw.\n`
+            return [`Player chose scissors. Computer chose scissors. Draw.\n`, `draw`]
         }
     } else if (playerPick === "rock") {
         if (computerPick === "scissors") {
-            playerScore++
-            return `Player chose rock. Computer chose scissors. Player wins.\n`
+            return [`Player chose rock. Computer chose scissors. Player wins round.\n`, `player`]
         } else if (computerPick === "paper") {
-            computerScore++
-            return `Player chose rock. Computer chose paper. Computer wins.\n`
+            
+            return [`Player chose rock. Computer chose paper. Computer wins round.\n`, `computer`]
         } else {
-            return `Player chose rock. Computer chose rock. Draw.\n`
+            return [`Player chose rock. Computer chose rock. Draw.\n`, `draw`]
         }
     } else {
         if (computerPick === "rock") {
-            playerScore++
-            return `Player chose paper. Computer chose rock. Player wins.\n`
+           
+            return [`Player chose paper. Computer chose rock. Player wins round.\n`, `player`]
         } else if (computerPick === "scissors") {
-            computerScore++
-            return `Player chose paper. Computer chose scissors. Computer wins.\n`
+    
+            return [`Player chose paper. Computer chose scissors. Computer wins round.\n`, `computer`]
         } else {
-            return `Player chose paper. Computer chose paper. Draw.\n`
+            return [`Player chose paper. Computer chose paper. Draw.\n`, `draw`]
         }
     }
 }
@@ -83,6 +83,5 @@ function getComputerPick() {
 
 console.log(playGame())
 
-resetVars()
 
 
