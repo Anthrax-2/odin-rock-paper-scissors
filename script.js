@@ -11,3 +11,11 @@ const computerScore = document.querySelector("#computer-score")
 const finalScore = document.querySelector("final-score")
 
 
+function validateRounds(rounds) {
+    const minValue = numberOfRounds.getAttribute("min")
+    const maxValue = numberOfRounds.getAttribute("max")
+    if (rounds > minValue && rounds < maxValue) {
+        return true
+    }
+    return false
+}
