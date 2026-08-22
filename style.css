@@ -1,0 +1,45 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h1 {
+    text-align: center;
+    padding: 2rem;
+
+}
+
+h2 {
+    text-align: center;
+}
+
+#rounds {
+    padding-bottom: 2rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.picks-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.picks {
+    padding: 1rem;
+}
