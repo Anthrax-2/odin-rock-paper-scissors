@@ -53,4 +53,5 @@ input[type="button"] {
     border: none;
     cursor: pointer;
     border-radius: 15px;
+    min-width: 5rem;
 }
