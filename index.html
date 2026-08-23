@@ -13,13 +13,15 @@
             <h1>Welcome to my Rock/Paper/Scissors game</h1>
         </header>
         <div class="content">
-            <div class="rounds-block">
-                <label for="number-of-rounds" id="rounds">
-                    Number of rounds
-                    <input id="number-of-rounds" type="number" min="1" max="10" value="1"/>
-                </label>
-                <input type="button" value="submit" id="submit-rounds">
-            </div>
+            <form novalidate>
+                <div class="rounds-block">
+                    <label for="number-of-rounds" id="rounds">
+                        Number of rounds
+                        <input id="number-of-rounds" type="number" min="1" max="10" value="1"/>
+                    </label>
+                    <input type="button" value="submit" id="submit-rounds">
+                </div>
+            </form>
             <p id="error-message" hidden></p>
             <div class="picks-block">
                 <h2>Choose:</h2>
