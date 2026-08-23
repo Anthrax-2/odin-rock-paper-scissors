@@ -19,6 +19,32 @@ const picks = document.querySelector(".picks")
 
 
 function validateRounds(rounds) {
+
+function getNumberOfRounds() {
+    if (!validateRounds(numberOfRounds.value)) {
+        errorMessage.hidden = false
+        errorMessage.textContent = "Invalid input (must be between 1 and 10)"
+        numberOfRounds.value = ""
+        numberOfRounds.focus()
+        return null
+    }
+    else {
+        errorMessage.hidden = true
+        return Number(numberOfRounds.value)
+    }
+}
+
+submitButton.addEventListener("click", () => {
+    const rounds = getNumberOfRounds()
+    
+})
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
+    const rounds = getNumberOfRounds()
+})
+
+
     const minValue = Number(numberOfRounds.getAttribute("min"))
     const maxValue = Number(numberOfRounds.getAttribute("max"))
     if (Number(rounds) >= minValue && Number(rounds) <= maxValue) {
