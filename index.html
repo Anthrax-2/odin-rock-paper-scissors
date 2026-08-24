@@ -13,31 +13,34 @@
             <h1>Welcome to my Rock/Paper/Scissors game</h1>
         </header>
         <div class="content">
-            <form novalidate>
-                <div class="rounds-block">
-                    <label for="number-of-rounds" id="rounds">
-                        Number of rounds
-                        <input id="number-of-rounds" type="number" min="1" max="10" value="1"/>
-                    </label>
-                    <input type="button" value="submit" id="submit-rounds">
-                </div>
-            </form>
+            <div class="rounds-block">
+                <label for="number-of-rounds" id="rounds">
+                    Number of rounds
+                    <input
+                        id="number-of-rounds"
+                        type="number"
+                        min="1"
+                        max="10"
+                        value="1"
+                    />
+                </label>
+                <input type="button" value="submit" id="submit-rounds" />
+            </div>
+
             <p id="error-message" hidden></p>
             <div class="picks-block">
-                <h2>Choose:</h2>
-                <div class="picks">
-                    <input type="button" value="Rock" id="rock">
-                    <input type="button" value="Paper" id="paper">
-                    <input type="button" value="Scissors" id="scissors">
+                <div class="picks hide">
+                    <h2>Choose:</h2>
+                    <input type="button" value="Rock" id="rock" />
+                    <input type="button" value="Paper" id="paper" />
+                    <input type="button" value="Scissors" id="scissors" />
                 </div>
-                
 
-                <div class="score-block">
+                <div class="score-block hide">
                     <p id="player-score">player score:</p>
                     <p id="computer-score">computer score:</p>
                     <p id="final-score" hidden>final score:</p>
                 </div>
-                
             </div>
         </div>
     </body>

@@ -12,11 +12,14 @@ const playerScore = document.querySelector("#player-score")
 const computerScore = document.querySelector("#computer-score")
 const finalScore = document.querySelector("#final-score")
 
+const scoreBlock = document.querySelector(".score-block")
+
 const submitButton = document.querySelector("#submit-rounds")
 const form = document.querySelector("form")
 
 const picks = document.querySelector(".picks")
 
+const roundsBlock = document.querySelector(".rounds-block")
 
 function validateRounds(rounds) {
     const minValue = Number(numberOfRounds.getAttribute("min"))
@@ -37,6 +40,7 @@ function getNumberOfRounds() {
     }
     else {
         errorMessage.hidden = true
+        toggleState()
         return Number(numberOfRounds.value)
     }
 }
@@ -49,12 +53,11 @@ function getComputerPick() {
 
 submitButton.addEventListener("click", () => {
     const rounds = getNumberOfRounds()
-    
+    console.log(rounds)
 })
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault()
-    const rounds = getNumberOfRounds()
-})
-
-
+function toggleState() {
+    roundsBlock.classList.toggle("hide")
+    picks.classList.toggle("hide")
+    scoreBlock.classList.toggle("hide")
+}
