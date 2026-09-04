@@ -1,5 +1,7 @@
 "use strict"
 
+//all these variables will be used later
+
 const numberOfRounds = document.querySelector("#number-of-rounds")
 
 const errorMessage = document.querySelector("#error-message")
@@ -21,6 +23,8 @@ const picks = document.querySelector(".picks")
 
 const roundsBlock = document.querySelector(".rounds-block")
 
+
+
 function validateRounds(rounds) {
     const minValue = Number(numberOfRounds.getAttribute("min"))
     const maxValue = Number(numberOfRounds.getAttribute("max"))
@@ -37,8 +41,7 @@ function getNumberOfRounds() {
         numberOfRounds.value = ""
         numberOfRounds.focus()
         return null
-    }
-    else {
+    } else {
         errorMessage.hidden = true
         toggleState()
         return Number(numberOfRounds.value)
@@ -51,13 +54,21 @@ function getComputerPick() {
     return picks[i]
 }
 
-submitButton.addEventListener("click", () => {
-    const rounds = getNumberOfRounds()
-    console.log(rounds)
-})
 
 function toggleState() {
     roundsBlock.classList.toggle("hide")
     picks.classList.toggle("hide")
     scoreBlock.classList.toggle("hide")
 }
+
+let numOfRounds = 0
+
+submitButton.addEventListener("click", () => {
+    let temp = getNumberOfRounds()
+    if (temp) {
+        numOfRounds = temp
+    }
+    console.log(numOfRounds)
+    
+})
+
