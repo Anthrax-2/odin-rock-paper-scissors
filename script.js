@@ -62,6 +62,8 @@ function toggleState() {
 }
 
 let numOfRounds = 0
+let currentPlayerPick = null
+let currentComputerPick = getComputerPick()
 
 submitButton.addEventListener("click", () => {
     let temp = getNumberOfRounds()
@@ -69,6 +71,11 @@ submitButton.addEventListener("click", () => {
         numOfRounds = temp
     }
     console.log(numOfRounds)
+    
+})
+
+picks.addEventListener("click", (event) => {
+    currentPlayerPick = event.target.id
     
 })
 
