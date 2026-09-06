@@ -23,8 +23,6 @@ const picks = document.querySelector(".picks")
 
 const roundsBlock = document.querySelector(".rounds-block")
 
-
-
 function validateRounds(rounds) {
     const minValue = Number(numberOfRounds.getAttribute("min"))
     const maxValue = Number(numberOfRounds.getAttribute("max"))
@@ -54,7 +52,6 @@ function getComputerPick() {
     return picks[i]
 }
 
-
 function toggleState() {
     roundsBlock.classList.toggle("hide")
     picks.classList.toggle("hide")
@@ -62,20 +59,72 @@ function toggleState() {
 }
 
 let numOfRounds = 0
-let currentPlayerPick = null
-let currentComputerPick = getComputerPick()
 
 submitButton.addEventListener("click", () => {
     let temp = getNumberOfRounds()
     if (temp) {
         numOfRounds = temp
     }
-    console.log(numOfRounds)
-    
 })
+
+const playerScoreValue = document.querySelector("#player-score-value")
+const computerScoreValue = document.querySelector("#computer-score-value")
+
+let currentRound = 0
 
 picks.addEventListener("click", (event) => {
-    currentPlayerPick = event.target.id
-    
+    if (event.target.tagName === "INPUT") {
+        let currentPlayerPick = event.target.id
+        let currentComputerPick = getComputerPick()
+
+        playRound(currentPlayerPick, currentComputerPick)
+        currentRound++
+
+        updateScore()
+
+        if (currentRound === numOfRounds) {
+            winner()
+        }
+    }
 })
 
+let plyScore = 0
+let comScore = 0
+
+const beatings = {
+    rock: "scissors",
+    paper: "rock",
+    scissors: "paper",
+}
+
+function playRound(playerPick, computerPick) {
+    if (playerPick === computerPick) {
+        return
+    } else if (beatings[playerPick] === computerPick) {
+        plyScore++
+    } else {
+        comScore++
+    }
+}
+
+
+
+function winner() {
+    let winMessage = ""
+    if (plyScore === comScore) {
+        winMessage = "Draw"
+    } else if (plyScore > comScore) {
+        winMessage = "Player wins"
+    } else {
+        winMessage = "Computer wins"
+    }
+    finalScore.hidden = false
+    finalScore.textContent = winMessage
+    
+    picks.classList.toggle("hide")
+}
+
+function updateScore() {
+    playerScoreValue.textContent = plyScore
+    computerScoreValue.textContent = comScore
+}
